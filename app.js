@@ -1,66 +1,66 @@
 var year = new Date().getFullYear();
-var newDate = '';
-var newName = '';
+var newDate = "";
+var newName = "";
 
 let birthdays = [
   {
     year: year,
-    name: 'Tara',
+    name: "Tara",
     date: `${this.year}-01-19T00:00:00`,
   },
   {
     year: year,
-    name: 'Dusan(Avala)',
+    name: "Dusan(Avala)",
     date: `${this.year}-02-27T00:00:00`,
   },
   {
     year: year,
-    name: 'Natalija',
+    name: "Natalija",
     date: `${this.year}-03-29T00:00:00`,
   },
   {
     year: year,
-    name: 'Vladan',
+    name: "Vladan",
     date: `${this.year}-04-10T00:00:00`,
   },
   {
     year: year,
-    name: 'Jana',
+    name: "Jana",
     date: `${this.year}-08-01T00:00:00`,
   },
   {
     year: year,
-    name: 'Filip',
+    name: "Filip",
     date: `${this.year}-08-20T00:00:00`,
   },
   {
     year: year,
-    name: 'Nixa',
+    name: "Nixa",
     date: `${this.year}-09-02T00:00:00`,
   },
   {
     year: year,
-    name: 'Alex',
+    name: "Alex",
     date: `${this.year}-10-16T00:00:00`,
   },
   {
     year: year,
-    name: 'Tonic',
+    name: "Tonic",
     date: `${this.year}-10-21T00:00:00`,
   },
   {
     year: year,
-    name: 'Flora',
+    name: "Flora",
     date: `${this.year}-11-28T00:00:00`,
   },
   {
     year: year,
-    name: 'Dimi',
+    name: "Dimi",
     date: `${this.year}-12-04T00:00:00`,
   },
   {
     year: year,
-    name: 'Dusan(Souly) and Toza',
+    name: "Dusan(Souly) and Toza",
     date: `${this.year}-12-12T00:00:00`,
   },
 ];
@@ -107,9 +107,9 @@ function changeYear(oldArray) {
   return oldArray;
 }
 
-document.querySelector('h1').innerHTML = `It's ${newName}'s birthday soon`;
+document.querySelector("h1").innerHTML = `It's ${newName}'s birthday soon`;
 var end = new Date(newDate);
-var units = ['day', 'hour', 'minute', 'second'];
+var units = ["day", "hour", "minute", "second"];
 
 var second = 1000;
 var minute = second * 60;
@@ -125,7 +125,7 @@ function showRemaining() {
 
   if (distance < 0) {
     clearInterval(timer);
-    document.querySelector('h1').innerHTML = 'Visit our site';
+    document.querySelector("h1").innerHTML = "Visit our site";
     return;
   }
 
@@ -140,7 +140,7 @@ function showRemaining() {
 function addZero(array) {
   for (i = 0; i < array.length; i++) {
     if (array[i] < 10) {
-      array[i] = '0' + array[i];
+      array[i] = "0" + array[i];
     }
   }
 
@@ -172,16 +172,36 @@ function animate(unit, prev, value) {
   document.querySelector(`#${unit} .bottom-back span`).innerHTML = value;
 
   var topFront = document.querySelector(`#${unit} .top-front`);
-  topFront.classList.add('flipped-top');
+  topFront.classList.add("flipped-top");
   var bottomBack = document.querySelector(`#${unit} .bottom-back`);
-  bottomBack.classList.add('flipped-bottom');
+  bottomBack.classList.add("flipped-bottom");
 
-  bottomBack.addEventListener('transitionend', () => {
-    topFront.classList.remove('flipped-top');
-    bottomBack.classList.remove('flipped-bottom');
+  bottomBack.addEventListener("transitionend", () => {
+    topFront.classList.remove("flipped-top");
+    bottomBack.classList.remove("flipped-bottom");
     document.querySelector(`#${unit} .top-front span`).innerHTML = value;
     document.querySelector(`#${unit} .bottom-front span`).innerHTML = value;
   });
 }
 
 timer = setInterval(showRemaining, 1000);
+
+//Generate data
+const dataScroll = document.querySelector(".data-scroll");
+
+const generateData = () => {
+  let htmlString = "";
+  for (let i = 0; i < birthdays.length; i++) {
+    let month = birthdays[i].date[5] + birthdays[i].date[6];
+    let day = birthdays[i].date[8] + birthdays[i].date[9];
+    htmlString += `<div class="row">
+    <p class="name">${birthdays[i].name}</p>
+    <div class="menu-date">
+    <p class="menu-month">${month}</p>
+    <p class="menu-day">${day}</p>
+    </div>
+  </div>`;
+  }
+  dataScroll.innerHTML = htmlString;
+};
+console.log(generateData());

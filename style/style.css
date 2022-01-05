@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Red Hat Text', sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.4rem;
   color: white;
   font-weight: 700;
@@ -150,7 +150,7 @@ h2 {
           transform: rotateX(-180deg);
 }
 
-span {
+.number {
   display: block;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -284,6 +284,204 @@ footer .attribution {
 
 footer .attribution a {
   color: #fb6087;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.bg-opened {
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.ham-menu {
+  width: 45px;
+  height: 40px;
+  background-color: #343650;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 11;
+  -webkit-box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ham-menu div {
+  height: 3px;
+  border-radius: 100px;
+  background-color: #fb6087;
+  width: 25px;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.ham-menu div:nth-of-type(1) {
+  top: 10px;
+}
+
+.opened div:nth-of-type(1) {
+  -webkit-transform: translate(-50%, -50%) rotateZ(45deg);
+          transform: translate(-50%, -50%) rotateZ(45deg);
+  top: 50%;
+}
+
+.ham-menu div:nth-of-type(2) {
+  top: 50%;
+}
+
+.opened div:nth-of-type(2) {
+  opacity: 0;
+}
+
+.ham-menu div:nth-of-type(3) {
+  top: calc(100% - 10px);
+}
+
+.opened div:nth-of-type(3) {
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotateZ(-45deg);
+          transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+.menu {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  background: #2c2c44;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  max-width: 700px;
+  width: calc(100vw - 40px);
+}
+
+.menu h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.menu-opened {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: calc(100% - 20px);
+}
+
+.menu-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: right;
+}
+
+.date {
+  font-size: 1rem;
+}
+
+.date .date-number {
+  font-size: 1rem;
+  color: #fb6087;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.row .menu-day {
+  color: #fb6087;
+  background: #191a24;
+  width: 40px;
+  border-radius: 5px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.menu-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  color: #fb6087;
+  margin: 20px 0;
+  margin-right: 20px;
+}
+
+.menu-label .menu-day {
+  margin-left: 50px;
+}
+
+.data-scroll {
+  width: 100%;
+  height: 325px;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.data-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.data-scroll::-webkit-scrollbar-track {
+  background-color: #191a24;
+  border-radius: 25px;
+}
+
+.data-scroll::-webkit-scrollbar-thumb {
+  background: #343650;
+  border-radius: 25px;
 }
 
 @media only screen and (max-width: 900px) {
