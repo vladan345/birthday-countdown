@@ -204,4 +204,5 @@ const generateData = () => {
   }
   dataScroll.innerHTML = htmlString;
 };
+
 console.log(generateData());
