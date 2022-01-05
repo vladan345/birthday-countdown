@@ -41,7 +41,7 @@ let birthdays = [
   {
     year: year,
     name: "Alex",
-    date: `${this.year}-10-16T00:00:00`,
+    date: `${this.year}-10-12T00:00:00`,
   },
   {
     year: year,
